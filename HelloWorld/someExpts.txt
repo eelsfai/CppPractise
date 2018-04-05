@@ -1,0 +1,234 @@
+//
+//  main.cpp
+//  HelloWorld
+//
+//  Created by Faisal El-Shabani on 2017-08-06.
+//  Copyright © 2017 Faisal El-Shabani. All rights reserved.
+//
+
+#include <iostream>
+#include "person.hpp"
+#include <ctime>
+#include <cmath>
+//#include "geometry.hpp"
+#include "pigLatinify.hpp"
+#include <string>
+#include <cstring>
+#include <set>
+#include <algorithm>
+
+void PassByValue(int var = 0)
+{
+    cout << "In PassByValue" << endl;
+    var++;
+    cout << "num is " << var << endl;
+}
+void PassByReference(int &pNum)
+{
+    cout << "In PassByReference" << endl;
+    pNum = 50;
+    cout << "num is " << pNum << endl;
+}
+
+int sumArray(int *a, int N, int counter =0, int sum=0)
+{
+    cout << *(a+counter) << endl;
+    sum += *(a+counter);
+    counter++;
+    if (counter == N)
+        return sum;
+    return sumArray(a, N, counter, sum);
+}
+
+void printArray(int a[], int size)
+{
+    for (int i=0;i<size;i++)
+    {
+        if (i==size-1)
+        {
+            cout << a[i] << endl;
+            break;
+        }
+        cout << a[i] << ", ";
+    }
+}
+
+
+void reverse (int *c, int size)
+{
+    int b[size];
+    for(int i=(size-1);i>=0;i--)
+    {
+        b[size-1-i] = *(c+i);
+    }
+    for (int i=0;i<size;i++)
+    {
+        *(c+i) = b[i];
+        cout << *(c+i) << endl;
+    }
+}
+
+int sizeOfArray(char * c)
+{
+    int counter=0;
+    for (int i=0;i<INFINITY;i++)
+    {
+        if (*(c+i)=='\0')
+            return counter;
+        ++counter;
+    }
+    return counter;
+}
+void swap(int &a,int &b)
+{
+    int c=a;
+    a = b;
+    b = c;
+}
+void swapByPointer(int *a,int *b)
+{
+    int c=*a;
+    *a = *b;
+    *b = c;
+}
+void swapP4(int **pntr1, int **pntr2)
+{
+    int temp = **pntr1;
+    **pntr1 = **pntr2;
+    **pntr2 = temp;
+    
+}
+
+
+class Point
+ {
+     private :
+    
+     public :
+     int x, y;
+//     Point () : x(0), y(0) {}
+     Point (){
+         x = 0;
+         y=0;
+     }
+     Point (int u, int v) : x(u), y(v) {}
+     int getX(void);
+     int getY () { return y; }
+ };
+
+
+using namespace std;
+
+int Point::getX(void) { return x; } //Defining a function outside of class. Keep in mind that function declaration must be done inside class to let compiler know that this function is expected.
+
+int main()
+{
+    // insert code here...
+
+/*    int a[10] = {1,2,3,4,5,6,7,8,9,10};
+    //printArray(a,10);
+    reverse(&a[0], 10);
+  */
+/*    int a=1;
+    int *c = &a;
+    int b=10;
+    int *d= &b;
+    swapByPointer(c,d);
+    cout << a << endl;
+    cout << b << endl;
+    
+    int x = 5, y = 6;
+    int * ptr1 = &x, * ptr2 = & y;
+    swapP4 (& ptr1 , & ptr2 ) ;
+    cout << * ptr1 << ' ' << * ptr2 << endl; // Prints "6 5"
+    
+    char oddOrEven[] = " Never odd or even ";
+    char *oddOrEvenPtr = &oddOrEven[0];
+    char *nthCharPtr = oddOrEvenPtr+6;
+    nthCharPtr = oddOrEvenPtr+7;
+    cout << *nthCharPtr << endl;
+    char ** pointerPtr = &nthCharPtr;
+    cout << **pointerPtr << endl;
+  */
+    
+
+//    char b[10] = {'a','o','m','n','b','g','f','e','d','c'};
+//    cout << sizeOfArray(&b[0]) << endl;
+    /*    srand ( time (0) );
+    double x = rand()/double(RAND_MAX);
+    
+    double n=5000000;
+    double a;
+    double b;
+    double count = 0;
+    for (int i=0;i<n;i++)
+    {
+        a = rand()/double(RAND_MAX);
+        b = rand()/double(RAND_MAX);
+        if (sqrt(pow(a,2)+pow(b,2))<1)
+            count++;
+    }
+    cout << count/n << endl;
+    double varA = 4*count/n;
+    double piEstimate = varA;
+    cout << piEstimate << endl;
+    */
+/*    int b[3] ={1,2,4};
+    cout << sumArray(&b[0],3) << endl;
+    
+    int num = 3;
+    int *pNum = new int;
+    *pNum = 5;
+    PassByValue();
+    cout << "num is " << num << endl ;
+    PassByReference(num);
+    
+    delete pNum;
+    
+ 
+    
+    // create a Person instance using default constructor
+    person *pOne = new person();
+    
+    // Create a Person instance using 2 argument constructor
+    person *pTwo = new person("Tom", "Thumb");
+    
+    // Create a Person instance using 3 argument constructor
+    person *pThree = new person("Tom", "Thumb", 15);
+    person p;
+    person &d = p;
+    
+    pTwo->sayHello();
+    
+    delete pOne;
+    delete pTwo;
+    delete pThree;
+    cout << O;*/
+    
+    //Point a;
+    //cout << a.getX() << endl;
+    //cout << "hello" << endl;
+    
+ //   int *p;
+  //  int x=5;
+   // p = &x;
+    //cout << *p << endl;
+    
+ //   cout << a.getX() << endl;
+//    string inputString = "beast";
+  //  pigLatinify(inputString);
+    /*set<int> iset;
+    iset.insert(5);
+    iset.insert(9);
+    iset.insert(1);
+    iset.insert(8);
+    iset.insert(3);
+    cout << "iset contains:";
+    set<int>::iterator it;
+    for(it=iset.begin(); it != iset.end(); it++)
+        cout << " " << *it;
+    cout << endl;
+    */
+    
+    return 0;
+}
